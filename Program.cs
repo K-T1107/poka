@@ -14,26 +14,17 @@ namespace poka
             {
                 string[] numberStr = new string[4];
                 int[] number = new int[4];
+                Random rnd = new Random();
                 for (int i = 0; i < 4; i++)
                 {
-                    Console.Write($"{i + 1}番目の数字を1～13の間で入力してください >");
-                    numberStr[i] = Console.ReadLine();
-
-                    bool result = int.TryParse(numberStr[i], out number[i]);
-
-                    if (result == false)
                     {
-                        Console.WriteLine("\nエラー　数値で入力しろ!");
-                    }
-                    if(number[i] >= 14)
-                    {
-                        Console.WriteLine("\nエラー　1～13で入力しろ!");
-                    }
-                    if (number[i] <= 0)
-                    {
-                        Console.WriteLine("\nエラー　1～13で入力しろ!");
+                        {
+                            number[i] = rnd.Next(0, 14);
+                            Console.WriteLine(number[i]);
+                        }
                     }
                 }
+
 
                 //ペアの判定
                 int count = 0;
@@ -75,7 +66,9 @@ namespace poka
 
                 if (result1 == false)
                 {
-                    Console.WriteLine("\nエラー　数値で入力しろ!");
+                    Console.WriteLine("\nエラー　数値で入力しろ! 強制終了すんぞ");
+                    Console.Read();
+                    break ;
                 }
 
                 if (answer == 1)
@@ -88,6 +81,8 @@ namespace poka
                     if (result2 == false)
                     {
                         Console.WriteLine("\nエラー　数値で入力しろ!");
+                        Console.Read();
+                        break ;
                     }
 
                     if (answer2 == 1)
@@ -101,10 +96,22 @@ namespace poka
                         Console.Read();
                         break;
                     }
+                    if (answer2 >= 3)
+                    {
+                        Console.WriteLine("エラー！　強制終了すんぞ");
+                        Console.Read();
+                        break;
+                    }
                 }
                 else if (answer == 2) 
                 {
                     Console.WriteLine("二度と来るな");
+                    Console.Read();
+                    break;
+                }
+                if (answer >= 3)
+                {
+                    Console.WriteLine("エラー！　強制終了すんぞ");
                     Console.Read();
                     break;
                 }
