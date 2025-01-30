@@ -10,8 +10,8 @@ namespace poka
     {
         static void Main(string[] args)
         {
-            string[]numberStr = new string[3];
-            for (int i = 0; i <=3; i++)
+            string[]numberStr = new string[4];
+            for (int i = 0; i < 4; i++)
             {
                 Console.WriteLine($"{i+1}番目の数字を入力してください >");
                 numberStr[i] = Console.ReadLine();
