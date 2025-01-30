@@ -16,7 +16,7 @@ namespace poka
                 int[] number = new int[4];
                 for (int i = 0; i < 4; i++)
                 {
-                    Console.Write($"{i + 1}番目の数字を入力してください >");
+                    Console.Write($"{i + 1}番目の数字を1～13の間で入力してください >");
                     numberStr[i] = Console.ReadLine();
 
                     bool result = int.TryParse(numberStr[i], out number[i]);
@@ -24,6 +24,14 @@ namespace poka
                     if (result == false)
                     {
                         Console.WriteLine("\nエラー　数値で入力しろ!");
+                    }
+                    if(number[i] >= 14)
+                    {
+                        Console.WriteLine("\nエラー　1～13で入力しろ!");
+                    }
+                    if (number[i] <= 0)
+                    {
+                        Console.WriteLine("\nエラー　1～13で入力しろ!");
                     }
                 }
 
